@@ -1,12 +1,13 @@
+export interface IUser {
+    access_token: string;
+}
+
 declare global {
     namespace Express {
-        export interface User {
-            id: string;
-            battletag: string;
+        export interface Request {
+            user: IUser;
         }
     }
 }
-
-interface Token {}
 
 export {};
