@@ -7,4 +7,6 @@ declare global {
     }
 }
 
+interface Token {}
+
 export {};
