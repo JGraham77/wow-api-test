@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import routes from "./routes";
+import grantAccessToken from "./middlewares/grantAccessToken";
 
 const isProduction = process.env.NODE_ENV === "production";
 const isDevelopment = process.env.NODE_ENV === "development";
@@ -9,11 +10,11 @@ const app = express();
 
 app.use(express.json());
 
-app.use(routes);
-
 if (isDevelopment) {
     app.use(cors());
 }
+app.use(grantAccessToken);
+app.use(routes);
 
 if (isProduction) {
     app.use(express.static("public"));

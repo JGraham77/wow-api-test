@@ -3,13 +3,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const wowapi = {
-    clientid: process.env.WOW_API_CLIENT as string,
-    clientsecret: process.env.WOW_API_SECRET as string,
-    scopes: process.env.WOW_API_SCOPES as string,
-};
-
-const expression = {
-    secret: process.env.SESSION_SECRET as string,
+    BNET_ID: process.env.WOW_API_CLIENT as string,
+    BNET_SECRET: process.env.WOW_API_SECRET as string,
 };
 
 const mysql = {
@@ -21,6 +16,5 @@ const mysql = {
 
 export default {
     wowapi,
-    expression,
     mysql,
 };
