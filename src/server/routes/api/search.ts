@@ -12,7 +12,7 @@ router.get("/creatures", (req, res) => {
     )
         .then((res) => res.json())
         .then((data) => {
-            res.json({ happyGreeting: "fook u", data });
+            res.json(data);
         });
 });
 
@@ -26,7 +26,7 @@ router.get("/items", (req, res) => {
     )
         .then((res) => res.json())
         .then((data) => {
-            res.json({ happyGreeting: "fook u", data });
+            res.json(data);
         });
 });
 
@@ -50,7 +50,7 @@ router.get("/media", (req, res) => {
         "spell",
     ];
     if (tag && !tagArray.includes(req.query.tag as string)) {
-        return res.status(404).json({ message: "Not a valid tag, fook u get it right", tagArray });
+        return res.status(404).json({ message: "Not a valid tag", tagArray });
     }
 
     // This should work, but blizzard's api is dumb
@@ -73,7 +73,7 @@ router.get("/media", (req, res) => {
 
             // Set class only allows unique elements
             // const setURL = [...new Set(parsedURL)];
-            res.json({ happyGreeting: "fook u", data });
+            res.json(data);
         });
 });
 

@@ -11,7 +11,7 @@ const grantAccessToken: RequestHandler = async (req, res, next) => {
     const f_res = await fetch("https://oauth.battle.net/token", {
         headers,
         method: "POST",
-        body: "grant_type=client_credentials",
+        body: "grant_type=client_credentials&scope=wow.profile",
     });
 
     const data = await f_res.json();
@@ -20,9 +20,10 @@ const grantAccessToken: RequestHandler = async (req, res, next) => {
         req.user = {
             access_token: data.access_token,
         };
+        console.log(data);
         next();
     } else {
-        res.status(401).json({ message: "FUCK! No access token uWu" });
+        res.status(401).json({ message: "No access token granted" });
         return;
     }
 };
