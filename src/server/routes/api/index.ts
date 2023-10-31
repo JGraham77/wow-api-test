@@ -2,6 +2,7 @@ import express from "express";
 import searchRoute from "./search";
 import playableRoute from "./playable";
 import profileRoute from "./profile";
+import getProfileToken from "../../middlewares/grantProfileToken";
 
 const router = express.Router();
 
@@ -21,5 +22,7 @@ router.get("/test", (req, res) => {
         .then((res) => res.json())
         .then((data) => res.json(data));
 });
+
+router.get("/characterinfo", getProfileToken);
 
 export default router;

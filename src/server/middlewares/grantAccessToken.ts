@@ -20,7 +20,6 @@ const grantAccessToken: RequestHandler = async (req, res, next) => {
         req.user = {
             access_token: data.access_token,
         };
-        console.log(data);
         next();
     } else {
         res.status(401).json({ message: "No access token granted" });
